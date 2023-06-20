@@ -1,18 +1,9 @@
 import {subtractHours} from 'lib/date';
-import {DataType} from 'core/types';
-
-interface IPagination<T> {
-    pagination: {
-        page: number;
-        size: number;
-        total_pages: number;
-    };
-    data: T;
-}
+import {Data, IPagination} from 'core/types';
 
 const today = new Date();
 
-const commentsPage1: IPagination<DataType[]> = {
+const commentsPage1: IPagination<Data[]> = {
     pagination: {
         page: 1,
         size: 6,
@@ -143,7 +134,7 @@ const commentsPage1: IPagination<DataType[]> = {
     ],
 };
 
-const commentsPage2: IPagination<DataType[]> = {
+const commentsPage2: IPagination<Data[]> = {
     pagination: {
         page: 2,
         size: 6,
@@ -217,7 +208,7 @@ const commentsPage2: IPagination<DataType[]> = {
     ],
 };
 
-const commentsPage3: IPagination<DataType[]> = {
+const commentsPage3: IPagination<Data[]> = {
     pagination: {
         page: 3,
         size: 6,

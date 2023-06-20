@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import {StrictMode} from 'react';
+import {createRoot} from 'react-dom/client';
 import useMockAdapter from 'api/useMockAdapter';
 import './index.css';
 import App from './App';
+import {Provider} from 'react-redux';
+import {store} from 'store';
 
-const root = ReactDOM.createRoot(
-    document.getElementById('root') as HTMLElement,
-);
+const root = createRoot(document.getElementById('root') as HTMLElement);
 
 export const RootApp = () => {
     useMockAdapter();
@@ -15,7 +15,9 @@ export const RootApp = () => {
 };
 
 root.render(
-    <React.StrictMode>
-        <RootApp />
-    </React.StrictMode>,
+    <StrictMode>
+        <Provider store={store}>
+            <RootApp />
+        </Provider>
+    </StrictMode>,
 );
