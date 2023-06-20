@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0ad4085f.css",
+    "main.js": "/static/js/main.70a1af24.js",
+    "static/media/background.webp": "/static/media/background.85f0420ab85b1af62392.webp",
+    "static/media/han-solo.webp": "/static/media/han-solo.d695a02f15641b64654a.webp",
+    "index.html": "/index.html",
+    "main.0ad4085f.css.map": "/static/css/main.0ad4085f.css.map",
+    "main.70a1af24.js.map": "/static/js/main.70a1af24.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0ad4085f.css",
+    "static/js/main.70a1af24.js"
+  ]
+}
