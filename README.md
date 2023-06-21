@@ -19,6 +19,6 @@
 
 ## Дизайн:
 
-### Figma [Comments](public/Comments.fig)
+### Figma [Comments](figma/Comments.fig)
 
-![preview.png](public/preview.png)
+![preview.png](figma/preview.png)

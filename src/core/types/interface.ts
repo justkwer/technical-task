@@ -13,15 +13,11 @@ export interface Data {
     likes: number;
 }
 
-export interface IPagination<T> {
+export interface IPagination {
     pagination: {
         page: number;
         size: number;
         total_pages: number;
     };
-    data: T;
-}
-
-export interface AuthorProps extends Author {
-    created: string;
+    data: Data[];
 }

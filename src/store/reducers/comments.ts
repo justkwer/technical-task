@@ -1,12 +1,11 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {CommentsState} from 'core/types';
-import {getData} from 'store/api';
+import {getAuthors, getComments} from 'store/api';
 
 const initialState: CommentsState = {
-    data: {},
-    totalComments: 0,
     totalLikes: 0,
-    loading: false,
+    page: 1,
+    loading: [true, true],
     error: false,
 };
 
@@ -14,28 +13,42 @@ export const commentsSlice = createSlice({
     name: 'comments',
     initialState,
     reducers: {
-        updateLikes: (state, {payload}: PayloadAction<number>) => {
-            state.totalLikes = payload;
+        updateLikes: (state, {payload}: PayloadAction<boolean>) => {
+            state.totalLikes = payload
+                ? state.totalLikes - 1
+                : state.totalLikes + 1;
         },
-        updateComments: (state, {payload}: PayloadAction<number>) => {
-            state.totalComments = payload;
+        changePage: (state, {payload}: PayloadAction<number>) => {
+            state.page = payload;
         },
     },
     extraReducers: (builder) => {
-        builder.addCase(getData.pending, (state) => {
-            if (!state.error) state.error = false;
-            state.loading = true;
+        builder.addCase(getAuthors.fulfilled, (state, {payload}) => {
+            state.authors = payload;
+            state.loading[0] = false;
         });
-        builder.addCase(getData.fulfilled, (state, {payload}) => {
-            state.data = payload;
-            state.loading = false;
-        });
-        builder.addCase(getData.rejected, (state) => {
+        builder.addCase(getAuthors.rejected, (state) => {
             state.error = true;
-            state.loading = false;
+            state.loading[0] = false;
+        });
+        builder.addCase(getComments.pending, (state) => {
+            state.loading[1] = true;
+        });
+        builder.addCase(getComments.fulfilled, (state, {payload}) => {
+            state.comments = payload;
+            state.totalLikes = payload.data.reduce(
+                (likes, comment) => likes + comment.likes,
+                0,
+            );
+            if (state.error) state.error = false;
+            state.loading[1] = false;
+        });
+        builder.addCase(getComments.rejected, (state) => {
+            state.error = true;
+            state.loading[1] = false;
         });
     },
 });
 
-export const {updateLikes, updateComments} = commentsSlice.actions;
+export const {updateLikes, changePage} = commentsSlice.actions;
 export const comments = commentsSlice.reducer;

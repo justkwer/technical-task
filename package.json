@@ -2,12 +2,14 @@
   "name": "technical_task",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://justkwer.github.io/technical-task",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "format": "prettier --write '*/**/*.{ts,tsx,js,jsx,css,scss,json}' --cache --cache-location=.yarn/.cache/.prettier-cache",
-    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}"
+    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "axios": "0.27.2",
@@ -15,7 +17,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^8.1.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "sass": "^1.63.5"
   },
   "eslintConfig": {
     "extends": [
@@ -63,6 +66,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.1",
+    "gh-pages": "^5.0.0",
     "prettier": "2.3.2",
     "typescript": "4.7.4"
   },
