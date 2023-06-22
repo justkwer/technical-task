@@ -10,6 +10,14 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  font-size: 14px;
+  color: white;
+  font-style: normal;
+  font-weight: 700;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   width: 100vw;
@@ -22,11 +30,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: center / contain no-repeat url('assets/images/background.webp') #101f25;
   background-size: 100% 100%;
+  font-size: 14px;
   color: white;
   font-style: normal;
   font-weight: 700;
-  font-size: 14px;
   align-items: center;
+  justify-content: center;
+ 
 }
 
 button {
@@ -135,7 +145,6 @@ hr {
 }
 
 .likes {
-
   display: flex;
   gap: 8px;
   align-items: center;
@@ -155,6 +164,7 @@ hr {
 .created {
   color: #8297AB;
   font-weight: 400;
+  font-size: 1rem;
 }
 
 .flex-ul {
@@ -171,5 +181,76 @@ hr {
 
   h4 {
     padding-top: 8px;
+    font-size: 1rem;
   }
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+  .author {
+    img {
+      width: 55px;
+      height: 55px;
+      min-width: 55px;
+    }
+  }
+
+  .comment {
+    & > h4 {
+      padding-left: 75px;
+    }
+  }
+
+  .comments {
+    gap: 28px;
+
+    ul {
+      padding-top: 28px;
+      padding-left: 34px;
+    }
+  }
+
+  .statistics, .likes {
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  html {
+    font-size: 18px;
+  }
+
+  #root {
+    max-width: 1200px;
+  }
+
+  .author {
+    img {
+      width: 55px;
+      height: 55px;
+      min-width: 55px;
+    }
+  }
+
+  .comment {
+    & > h4 {
+      padding-left: 75px;
+    }
+  }
+
+  .comments {
+    gap: 32px;
+
+    ul {
+      padding-top: 32px;
+      padding-left: 34px;
+    }
+  }
+
 }
