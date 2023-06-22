@@ -4,9 +4,10 @@ import {getAuthors, getComments} from 'store/api';
 import {Button, Comments, Statistics} from 'components';
 import {selectComments} from 'store/selectors';
 import {ReactComponent as Preloader} from 'assets/svg/preloader.svg';
+import {ERROR_MESSAGE} from './core/constants';
 
 function App() {
-    const {loading, page, comments} = useAppSelector(selectComments);
+    const {loading, page, comments, error} = useAppSelector(selectComments);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -19,17 +20,14 @@ function App() {
 
     if (loading.every((el) => el)) return <Preloader />;
 
-    return loading.includes(true) ? (
+    return (
         <>
-            <Preloader />
-            <Button />
-        </>
-    ) : (
-        <>
-            {comments && (
+            {loading.includes(true) && <Preloader />}
+            {error && <p>{ERROR_MESSAGE}</p>}
+            {!error && !loading.includes(true) && (
                 <>
                     <Statistics />
-                    <Comments data={comments.data} />
+                    <Comments data={comments?.data} />
                 </>
             )}
             <Button />

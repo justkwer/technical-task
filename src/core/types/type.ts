@@ -16,7 +16,9 @@ export type CommentsProps = {
     data?: Data[] | Data;
 };
 
-export type AuthorProps = Omit<Data, 'text'>;
+export type CommentProps = Omit<Data, 'id' | 'parent'>;
+
+export type AuthorProps = Omit<CommentProps, 'text'>;
 
 export type LikesProps = Pick<Data, 'likes'>;
 

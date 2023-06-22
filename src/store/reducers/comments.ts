@@ -33,6 +33,7 @@ export const commentsSlice = createSlice({
         });
         builder.addCase(getComments.pending, (state) => {
             state.loading[1] = true;
+            if (state.error) state.error = false;
         });
         builder.addCase(getComments.fulfilled, (state, {payload}) => {
             state.comments = payload;

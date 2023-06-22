@@ -16,12 +16,16 @@ export const Comments: FC<CommentsProps> = ({data}) => {
 
     if (Array.isArray(data)) {
         return (
-            <ul className="comments">
+            <ul className="comments flex-ul">
                 {data.map(
-                    (el) =>
-                        !el.parent && (
-                            <Comment key={el.id} {...el}>
-                                <Comments data={findParent(el.id)} />
+                    ({parent, id, ...other}) =>
+                        !parent && (
+                            <Comment key={id} {...other}>
+                                {findParent(id) && (
+                                    <ul className="flex-ul">
+                                        <Comments data={findParent(id)} />
+                                    </ul>
+                                )}
                             </Comment>
                         ),
                 )}
@@ -29,11 +33,12 @@ export const Comments: FC<CommentsProps> = ({data}) => {
         );
     }
 
+    const {id, parent, ...other} = data;
+
     return (
-        <ul>
-            <Comment {...data}>
-                <Comments data={findParent(data.id)} />
-            </Comment>
-        </ul>
+        <>
+            <Comment {...other} />
+            <Comments data={findParent(id)} />
+        </>
     );
 };

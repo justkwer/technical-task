@@ -1,6 +1,6 @@
 import {useAppDispatch, useAppSelector} from 'core/hooks';
 import {selectComments} from 'store/selectors';
-import {buttonTitle} from 'core/constants';
+import {BUTTON_TITLE} from 'core/constants';
 import {changePage} from 'store/reducers';
 import {getComments} from 'store/api';
 
@@ -21,7 +21,7 @@ export const Button = () => {
 
     return (
         <button onClick={handleChangePage}>
-            {error ? buttonTitle.error : buttonTitle.next}
+            {error ? BUTTON_TITLE.error : BUTTON_TITLE.next}
         </button>
     );
 };
