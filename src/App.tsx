@@ -7,7 +7,8 @@ import {ReactComponent as Preloader} from 'assets/svg/preloader.svg';
 import {ERROR_MESSAGE} from './core/constants';
 
 function App() {
-    const {loading, page, comments, error} = useAppSelector(selectComments);
+    const {loading, page, comments, error, totalPages} =
+        useAppSelector(selectComments);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -27,10 +28,10 @@ function App() {
             {!error && !loading.includes(true) && (
                 <>
                     <Statistics />
-                    <Comments data={comments?.data} />
+                    <Comments data={comments} />
                 </>
             )}
-            <Button />
+            {totalPages && page < totalPages && <Button />}
         </>
     );
 }

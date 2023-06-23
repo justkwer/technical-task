@@ -5,7 +5,7 @@ import {changePage} from 'store/reducers';
 import {getComments} from 'store/api';
 
 export const Button = () => {
-    const {comments, page, error} = useAppSelector(selectComments);
+    const {page, error} = useAppSelector(selectComments);
     const dispatch = useAppDispatch();
 
     const handleChangePage = () => {
@@ -13,10 +13,8 @@ export const Button = () => {
             dispatch(getComments(page));
             return;
         }
-        if (!comments) return;
 
-        const newPage = page < comments.pagination.total_pages ? page + 1 : 1;
-        dispatch(changePage(newPage));
+        dispatch(changePage(page + 1));
     };
 
     return (

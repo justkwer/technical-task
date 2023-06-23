@@ -8,7 +8,7 @@ export const Comments: FC<CommentsProps> = ({data}) => {
     const {comments} = useAppSelector(selectComments);
 
     const findParent = useCallback(
-        (id: number) => comments?.data.find((el) => el.parent === id),
+        (id: number) => comments?.find(({parent}) => parent === id),
         [comments],
     );
 
