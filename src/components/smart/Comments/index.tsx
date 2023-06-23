@@ -2,7 +2,7 @@ import {FC, useCallback} from 'react';
 import {CommentsProps} from 'core/types';
 import {useAppSelector} from 'core/hooks';
 import {selectComments} from 'store/selectors';
-import {Comment} from '../../simple/Comment';
+import {Comment} from 'components';
 
 export const Comments: FC<CommentsProps> = ({data}) => {
     const {comments} = useAppSelector(selectComments);

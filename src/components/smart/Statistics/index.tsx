@@ -7,7 +7,7 @@ export const Statistics = () => {
 
     return (
         <div className="statistics">
-            <p>{comments ? comments.length : 0} comments</p>
+            <p>{comments?.length ?? 0} comments</p>
             <span>
                 <Heart />
                 {totalLikes}

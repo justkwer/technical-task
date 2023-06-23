@@ -4,7 +4,7 @@ import {getAuthors, getComments} from 'store/api';
 import {Button, Comments, Statistics} from 'components';
 import {selectComments} from 'store/selectors';
 import {ReactComponent as Preloader} from 'assets/svg/preloader.svg';
-import {ERROR_MESSAGE} from './core/constants';
+import {ERROR_MESSAGE} from 'core/constants';
 
 function App() {
     const {loading, page, comments, error, totalPages} =
@@ -23,14 +23,14 @@ function App() {
 
     return (
         <>
-            {loading.includes(true) && <Preloader />}
-            {error && <p>{ERROR_MESSAGE}</p>}
-            {!error && !loading.includes(true) && (
+            {comments && (
                 <>
                     <Statistics />
                     <Comments data={comments} />
                 </>
             )}
+            {error && <p>{ERROR_MESSAGE}</p>}
+            {loading.includes(true) && <Preloader />}
             {totalPages && page < totalPages && <Button />}
         </>
     );

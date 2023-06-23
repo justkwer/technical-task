@@ -19,7 +19,7 @@ export const Button = () => {
 
     return (
         <button onClick={handleChangePage}>
-            {error ? BUTTON_TITLE.error : BUTTON_TITLE.next}
+            {error ? BUTTON_TITLE.error : BUTTON_TITLE.load}
         </button>
     );
 };

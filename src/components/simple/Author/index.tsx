@@ -2,11 +2,12 @@ import {FC} from 'react';
 import {AuthorProps} from 'core/types';
 import {useAppSelector} from 'core/hooks';
 import {selectComments} from 'store/selectors';
-import {Created, Likes} from 'components';
+import {Likes} from 'components';
+import {getDate} from 'core/utils';
 
 export const Author: FC<AuthorProps> = ({created, author, likes}) => {
     const {authors} = useAppSelector(selectComments);
-    const commentator = authors?.find((el) => el.id === author);
+    const commentator = authors?.find(({id}) => id === author);
 
     if (!commentator) return null;
 
@@ -18,7 +19,7 @@ export const Author: FC<AuthorProps> = ({created, author, likes}) => {
             <figcaption>
                 <div>
                     <h3>{name}</h3>
-                    <Created created={created} />
+                    <span className="created">{getDate(created)}</span>
                 </div>
                 <Likes likes={likes} />
             </figcaption>

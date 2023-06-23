@@ -1,7 +1,4 @@
-import {FC} from 'react';
-import {CreatedProps} from 'core/types';
-
-export const Created: FC<CreatedProps> = ({created}) => {
+export const getDate = (created: string) => {
     const today = new Date();
     const createdDate = new Date(created);
     const diffDate = today.getDate() - createdDate.getDate();
@@ -11,5 +8,5 @@ export const Created: FC<CreatedProps> = ({created}) => {
         date = createdDate.toLocaleString('en-GB').replaceAll('/', '.');
     } else date = today.getHours() - createdDate.getHours() + ' hours ago';
 
-    return <span className="created">{date}</span>;
+    return date;
 };

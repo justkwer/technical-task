@@ -1,6 +1,6 @@
 import {FC, PropsWithChildren} from 'react';
 import {CommentProps} from 'core/types';
-import {Author} from '../Author';
+import {Author} from 'components';
 
 export const Comment: FC<PropsWithChildren<CommentProps>> = ({
     children,
