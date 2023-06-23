@@ -21,11 +21,7 @@ export const Comments: FC<CommentsProps> = ({data}) => {
                     ({parent, id, ...other}) =>
                         !parent && (
                             <Comment key={id} {...other}>
-                                {findParent(id) && (
-                                    <ul className="flex-ul">
-                                        <Comments data={findParent(id)} />
-                                    </ul>
-                                )}
+                                <Comments data={findParent(id)} />
                             </Comment>
                         ),
                 )}
@@ -36,9 +32,10 @@ export const Comments: FC<CommentsProps> = ({data}) => {
     const {id, parent, ...other} = data;
 
     return (
-        <>
-            <Comment {...other} />
-            <Comments data={findParent(id)} />
-        </>
+        <ul className="flex-ul">
+            <Comment {...other}>
+                <Comments data={findParent(id)} />
+            </Comment>
+        </ul>
     );
 };
