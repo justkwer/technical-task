@@ -1,5 +1,5 @@
 export const BUTTON_TITLE = {
-    next: 'Next page',
+    next: 'Load more',
     error: 'Try again',
 };
 
