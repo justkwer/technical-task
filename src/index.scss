@@ -51,6 +51,7 @@ button {
   justify-content: space-between;
   gap: 24px;
   align-items: center;
+  max-width: 610px;
 
   & > button {
     padding: 8px 62px;
@@ -58,7 +59,7 @@ button {
     border-radius: 10px;
     color: white;
     font-size: 1em;
-    font-weight: 600;
+    font-weight: 400;
     margin-top: auto;
     border: none;
 
@@ -126,6 +127,7 @@ hr {
     font-size: 1rem;
     font-weight: 400;
     word-break: break-word;
+    white-space: pre-wrap;
   }
 }
 
@@ -150,6 +152,7 @@ hr {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -190,68 +193,26 @@ hr {
   }
 
   h4 {
-    padding-top: 8px;
     font-size: 1rem;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 610px) {
   html {
     font-size: 16px;
   }
 
   .author {
     img {
-      width: 55px;
-      height: 55px;
-      min-width: 55px;
+      width: 68px;
+      height: 68px;
+      min-width: 68px;
     }
   }
 
   .comment {
     & > h4 {
-      padding-left: 75px;
-    }
-  }
-
-  .comments {
-    gap: 28px;
-
-    ul {
-      padding-top: 28px;
-      padding-left: 34px;
-    }
-  }
-
-  .statistics,
-  .likes {
-    svg {
-      width: 22px;
-      height: 22px;
-    }
-  }
-}
-
-@media (min-width: 1200px) {
-  html {
-    font-size: 18px;
-  }
-
-  #root {
-    max-width: 1200px;
-  }
-
-  .author {
-    img {
-      width: 55px;
-      height: 55px;
-      min-width: 55px;
-    }
-  }
-
-  .comment {
-    & > h4 {
-      padding-left: 75px;
+      padding-left: 88px;
     }
   }
 
@@ -261,6 +222,14 @@ hr {
     ul {
       padding-top: 32px;
       padding-left: 34px;
+    }
+  }
+
+  .statistics,
+  .likes {
+    svg {
+      width: 22px;
+      height: 22px;
     }
   }
 }
