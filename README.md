@@ -1,5 +1,7 @@
 # Тестовое задание
 
+## <img src="https://raw.githubusercontent.com/justkwer/technical-task/master/public/favicon.ico" width="30" height="25" />  [Technical task](https://justkwer.github.io/technical-task/)
+
 1. Репозиторий не форкать
 2. Выполненное задание загрузить на GitHub (GitHub Pages)
 
