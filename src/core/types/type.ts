@@ -1,20 +1,20 @@
 import {Author, Data} from './interface';
 
 export type CommentsState = {
-    authors?: Author[];
-    comments?: Data[];
-    page: number;
-    totalLikes: number;
-    totalPages?: number;
-    loading: {
-        authors: boolean;
-        comments: boolean;
-    };
-    error: boolean;
+  authors?: Author[];
+  comments?: Data[];
+  page: number;
+  totalLikes: number;
+  totalPages?: number;
+  loading: {
+    authors: boolean;
+    comments: boolean;
+  };
+  error: boolean;
 };
 
 export type CommentsProps = {
-    data?: Data[] | Data;
+  data?: Data[] | Data;
 };
 
 export type CommentProps = Omit<Data, 'id' | 'parent'>;

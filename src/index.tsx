@@ -9,15 +9,15 @@ import {store} from 'store';
 const root = createRoot(document.getElementById('root') as HTMLElement);
 
 export const RootApp = () => {
-    useMockAdapter();
+  useMockAdapter();
 
-    return <App />;
+  return <App />;
 };
 
 root.render(
-    <StrictMode>
-        <Provider store={store}>
-            <RootApp />
-        </Provider>
-    </StrictMode>,
+  <StrictMode>
+    <Provider store={store}>
+      <RootApp />
+    </Provider>
+  </StrictMode>,
 );

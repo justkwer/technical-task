@@ -6,21 +6,21 @@ import {getComments} from 'store/api';
 import styles from './button.module.scss';
 
 export const Button = () => {
-    const {page, error} = useAppSelector(selectComments);
-    const dispatch = useAppDispatch();
+  const {page, error} = useAppSelector(selectComments);
+  const dispatch = useAppDispatch();
 
-    const handleChangePage = () => {
-        if (error) {
-            dispatch(getComments(page));
-            return;
-        }
+  const handleChangePage = () => {
+    if (error) {
+      dispatch(getComments(page));
+      return;
+    }
 
-        dispatch(changePage(page + 1));
-    };
+    dispatch(changePage(page + 1));
+  };
 
-    return (
-        <button onClick={handleChangePage} className={styles.btn}>
-            {error ? BUTTON_TITLE.error : BUTTON_TITLE.load}
-        </button>
-    );
+  return (
+    <button onClick={handleChangePage} className={styles.btn}>
+      {error ? BUTTON_TITLE.error : BUTTON_TITLE.load}
+    </button>
+  );
 };

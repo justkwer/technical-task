@@ -4,13 +4,13 @@ import {Author} from 'components';
 import styles from './comment.module.scss';
 
 export const Comment: FC<PropsWithChildren<CommentProps>> = ({
-    children,
-    text,
-    ...rest
+  children,
+  text,
+  ...rest
 }) => (
-    <li className={styles.wrapper}>
-        <Author {...rest} />
-        <h4 className={styles.text}>{text}</h4>
-        {children}
-    </li>
+  <li className={styles.wrapper}>
+    <Author {...rest} />
+    <h4 className={styles.text}>{text}</h4>
+    {children}
+  </li>
 );

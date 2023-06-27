@@ -28,6 +28,10 @@
     "react-refresh"
   ],
   "rules": {
+    "react/jsx-indent": [
+      "error",
+      2
+    ],
     "linebreak-style": "off",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
@@ -37,7 +41,7 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-non-null-assertion": "error",
-   // "@typescript-eslint/no-explicit-any": "error",
+    // "@typescript-eslint/no-explicit-any": "error",
     "prettier/prettier": [
       "error",
       {

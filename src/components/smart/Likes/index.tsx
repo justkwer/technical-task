@@ -6,22 +6,22 @@ import {LikesProps} from 'core/types';
 import styles from './likes.module.scss';
 
 export const Likes: FC<LikesProps> = ({likes}) => {
-    const [isActive, setIsActive] = useState(false);
-    const [like, setLike] = useState(likes);
-    const dispatch = useAppDispatch();
+  const [isActive, setIsActive] = useState(false);
+  const [like, setLike] = useState(likes);
+  const dispatch = useAppDispatch();
 
-    const handleClick = () => {
-        setLike((prevState) => prevState + (isActive ? -1 : 1));
-        dispatch(updateLikes(isActive));
-        setIsActive((prevState) => !prevState);
-    };
+  const handleClick = () => {
+    setLike((prevState) => prevState + (isActive ? -1 : 1));
+    dispatch(updateLikes(isActive));
+    setIsActive((prevState) => !prevState);
+  };
 
-    return (
-        <div className={styles.wrapper}>
-            <button onClick={handleClick}>
-                <Heart className={`heart_svg ${isActive && 'heart_active'}`} />
-            </button>
-            {like}
-        </div>
-    );
+  return (
+    <div className={styles.wrapper}>
+      <button onClick={handleClick}>
+        <Heart className={`heart_svg ${isActive && 'heart_active'}`} />
+      </button>
+      {like}
+    </div>
+  );
 };
