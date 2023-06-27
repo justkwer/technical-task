@@ -39,10 +39,11 @@ export const commentsSlice = createSlice({
             getComments.fulfilled,
             (state, {payload: {data, pagination}}) => {
                 state.comments = state.comments?.concat(data) ?? data;
-                state.totalLikes = data.reduce(
+                state.totalLikes += data.reduce(
                     (likes, comment) => likes + comment.likes,
                     0,
                 );
+
                 if (state.error) state.error = false;
 
                 if (!state.totalPages)
