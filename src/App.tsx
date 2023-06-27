@@ -1,5 +1,5 @@
 import {useAppDispatch, useAppSelector} from 'core/hooks';
-import {useEffect} from 'react';
+import {useEffect, useMemo} from 'react';
 import {getAuthors, getComments} from 'store/api';
 import {Button, Comments, Statistics} from 'components';
 import {selectComments} from 'store/selectors';
@@ -10,6 +10,7 @@ function App() {
     const {loading, page, comments, error, totalPages} =
         useAppSelector(selectComments);
     const dispatch = useAppDispatch();
+    const isLoading = useMemo(() => Object.values(loading), [loading]);
 
     useEffect(() => {
         dispatch(getComments(page));
@@ -19,7 +20,7 @@ function App() {
         dispatch(getAuthors());
     }, [dispatch]);
 
-    if (loading.every(Boolean)) return <Preloader />;
+    if (isLoading.every(Boolean)) return <Preloader />;
 
     return (
         <>
@@ -30,7 +31,7 @@ function App() {
                 </>
             )}
             {error && <p>{ERROR_MESSAGE}</p>}
-            {loading.includes(true) && <Preloader />}
+            {isLoading.includes(true) && <Preloader />}
             {totalPages && page < totalPages && <Button />}
         </>
     );

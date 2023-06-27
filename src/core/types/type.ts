@@ -1,15 +1,15 @@
 import {Author, Data} from './interface';
 
-type AuthorsLoading = boolean;
-type CommentsLoading = boolean;
-
 export type CommentsState = {
     authors?: Author[];
     comments?: Data[];
     page: number;
     totalLikes: number;
     totalPages?: number;
-    loading: [AuthorsLoading, CommentsLoading];
+    loading: {
+        authors: boolean;
+        comments: boolean;
+    };
     error: boolean;
 };
 
