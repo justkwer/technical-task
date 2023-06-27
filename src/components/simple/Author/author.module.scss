@@ -22,10 +22,6 @@
   }
 }
 
-/*.description {
-  width: 35px;
-}*/
-
 .figcaption {
   width: 100%;
   display: flex;
@@ -39,8 +35,12 @@
   font-size: 1rem;
 }
 
-/*.short {
+.description {
+  width: calc(100% - 35px);
+}
+
+.short {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}*/
+}
