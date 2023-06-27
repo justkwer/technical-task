@@ -19,7 +19,7 @@ function App() {
         dispatch(getAuthors());
     }, [dispatch]);
 
-    if (loading.every((el) => el)) return <Preloader />;
+    if (loading.every(Boolean)) return <Preloader />;
 
     return (
         <>

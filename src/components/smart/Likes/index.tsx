@@ -3,6 +3,7 @@ import {ReactComponent as Heart} from 'assets/svg/heart.svg';
 import {useAppDispatch} from 'core/hooks';
 import {updateLikes} from 'store/reducers';
 import {LikesProps} from 'core/types';
+import styles from './likes.module.scss';
 
 export const Likes: FC<LikesProps> = ({likes}) => {
     const [isActive, setIsActive] = useState(false);
@@ -16,9 +17,9 @@ export const Likes: FC<LikesProps> = ({likes}) => {
     };
 
     return (
-        <div className="likes">
-            <button className={isActive ? 'active' : ''} onClick={handleClick}>
-                <Heart />
+        <div className={styles.wrapper}>
+            <button onClick={handleClick}>
+                <Heart className={`heart_svg ${isActive && 'heart_active'}`} />
             </button>
             {like}
         </div>

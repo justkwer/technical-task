@@ -35,21 +35,22 @@ export const commentsSlice = createSlice({
             state.loading[1] = true;
             if (state.error) state.error = false;
         });
-        builder.addCase(getComments.fulfilled, (state, {payload}) => {
-            state.comments = state.comments
-                ? state.comments.concat(payload.data)
-                : payload.data;
-            state.totalLikes = payload.data.reduce(
-                (likes, comment) => likes + comment.likes,
-                0,
-            );
-            if (state.error) state.error = false;
+        builder.addCase(
+            getComments.fulfilled,
+            (state, {payload: {data, pagination}}) => {
+                state.comments = state.comments?.concat(data) ?? data;
+                state.totalLikes = data.reduce(
+                    (likes, comment) => likes + comment.likes,
+                    0,
+                );
+                if (state.error) state.error = false;
 
-            if (!state.totalPages)
-                state.totalPages = payload.pagination.total_pages;
+                if (!state.totalPages)
+                    state.totalPages = pagination.total_pages;
 
-            state.loading[1] = false;
-        });
+                state.loading[1] = false;
+            },
+        );
         builder.addCase(getComments.rejected, (state) => {
             state.error = true;
             state.loading[1] = false;

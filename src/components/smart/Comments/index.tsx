@@ -3,6 +3,7 @@ import {CommentsProps} from 'core/types';
 import {useAppSelector} from 'core/hooks';
 import {selectComments} from 'store/selectors';
 import {Comment} from 'components';
+import styles from './comments.module.scss';
 
 export const Comments: FC<CommentsProps> = ({data}) => {
     const {comments} = useAppSelector(selectComments);
@@ -16,7 +17,7 @@ export const Comments: FC<CommentsProps> = ({data}) => {
 
     if (Array.isArray(data)) {
         return (
-            <ul className="comments flex-ul">
+            <ul className={`${styles.table} ${styles.flex_ul}`}>
                 {data.map(
                     ({parent, id, ...other}) =>
                         !parent && (
@@ -32,7 +33,7 @@ export const Comments: FC<CommentsProps> = ({data}) => {
     const {id, parent, ...other} = data;
 
     return (
-        <ul className="flex-ul">
+        <ul className={styles.flex_ul}>
             <Comment {...other}>
                 <Comments data={findParent(id)} />
             </Comment>

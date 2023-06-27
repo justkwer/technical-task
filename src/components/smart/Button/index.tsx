@@ -3,6 +3,7 @@ import {selectComments} from 'store/selectors';
 import {BUTTON_TITLE} from 'core/constants';
 import {changePage} from 'store/reducers';
 import {getComments} from 'store/api';
+import styles from './button.module.scss';
 
 export const Button = () => {
     const {page, error} = useAppSelector(selectComments);
@@ -18,7 +19,7 @@ export const Button = () => {
     };
 
     return (
-        <button onClick={handleChangePage}>
+        <button onClick={handleChangePage} className={styles.btn}>
             {error ? BUTTON_TITLE.error : BUTTON_TITLE.load}
         </button>
     );
