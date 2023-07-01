@@ -1,7 +1,7 @@
 .wrapper {
   width: 100%;
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 
 .name {
@@ -33,14 +33,4 @@
   color: #8297ab;
   font-weight: 400;
   font-size: 1rem;
-}
-
-.description {
-  width: calc(100% - 35px);
-}
-
-.short {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }

@@ -19,11 +19,11 @@ export const Author: FC<AuthorProps> = ({created, author, likes}) => {
     <figure className={styles.wrapper}>
       <img src={avatar} alt={name} className={styles.image} />
       <figcaption className={styles.figcaption}>
-        <div className={styles.description}>
-          <h3 title={name} className={`${styles.name} ${styles.short}`}>
+        <div>
+          <h3 title={name} className={styles.name}>
             {name}
           </h3>
-          <h4 title={data} className={`${styles.created} ${styles.short}`}>
+          <h4 title={data} className={styles.created}>
             {data}
           </h4>
         </div>
